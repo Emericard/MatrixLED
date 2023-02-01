@@ -4,7 +4,7 @@ import sys
 import runtext
 import time
 
-run = runtext.RunText("Coucou")
+run = runtext.runtextfct()
 try:
     print("Press CTRL-C to stop.")
     while True:
