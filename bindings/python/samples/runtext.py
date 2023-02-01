@@ -68,11 +68,13 @@ graphics.Color(255, 234, 0)]
 
         print(offscreen_canvas)
 
-def runtextfct(){
-    run_text = RunText()
-}
-# Main function
-if __name__ == "__main__":
+def runtextfct():
     run_text = RunText()
     if (not run_text.process()):
         run_text.print_help()
+
+
+# Main function
+run_text = RunText()
+if (not run_text.process()):
+    run_text.print_help()

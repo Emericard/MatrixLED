@@ -1,10 +1,13 @@
 #!/usr/bin/python
 import imageViewer
+print("Image")
 import sys
+print("sys")
 import runtext
+print("runtext")
 import time
 
-run = runtext.runtextfct()
+
 try:
     print("Press CTRL-C to stop.")
     while True:

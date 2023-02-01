@@ -25,9 +25,3 @@ matrix = RGBMatrix(options = options)
 
 matrix.SetImage(image.convert('RGB'))
 
-try:
-    print("Press CTRL-C to stop.")
-    while True:
-        time.sleep(100)
-except KeyboardInterrupt:
-    sys.exit(0)
