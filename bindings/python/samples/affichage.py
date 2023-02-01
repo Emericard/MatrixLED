@@ -1,7 +1,10 @@
 #!/usr/bin/python
 import imageViewer
+import sys
+import runtext
+import time
 
-
+run = runtext.RunText("Coucou")
 try:
     print("Press CTRL-C to stop.")
     while True:

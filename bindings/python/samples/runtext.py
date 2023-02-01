@@ -58,9 +58,9 @@ graphics.Color(255, 234, 0)]
             iteration += sens
             if iteration == 31 or iteration == 0:
                 sens = -sens
-            len = graphics.DrawText(offscreen_canvas, font, pos, 20, colors[iteration], my_text)
+            len = graphics.DrawText(offscreen_canvas, font, pos, 10, colors[iteration], my_text)
             pos -= 1
-            if (pos + len < 0):
+            if (pos + len < 16):
                 pos = offscreen_canvas.width
 
             time.sleep(0.05)
