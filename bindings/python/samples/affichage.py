@@ -1,5 +1,5 @@
 #!/usr/bin/python
-import image-viewer
+import imageViewer
 
 
 try:
