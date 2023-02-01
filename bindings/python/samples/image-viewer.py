@@ -15,14 +15,11 @@ image = Image.open(image_file)
 # Configuration for the matrix
 options = RGBMatrixOptions()
 options.rows = 32
-options.chain_length = 1
+options.chain_length = 2
 options.parallel = 1
-options.hardware_mapping = 'regular'  # If you have an Adafruit HAT: 'adafruit-hat'
+options.hardware_mapping = 'adafruit-hat'  # If you have an Adafruit HAT: 'adafruit-hat'
 
 matrix = RGBMatrix(options = options)
-
-# Make image fit our screen.
-image.thumbnail((matrix.width, matrix.height), Image.ANTIALIAS)
 
 matrix.SetImage(image.convert('RGB'))
 
