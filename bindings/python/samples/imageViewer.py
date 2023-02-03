@@ -10,7 +10,9 @@ if len(sys.argv) < 2:
 else:
     image_file = sys.argv[1]
 
-def display_image(image_files): 
+display_image(image_file)
+
+def display_image(image_file): 
 
     image = Image.open(image_file)
 
