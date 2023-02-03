@@ -8,7 +8,7 @@ from PIL import Image
 
 frame = len(sys.argv) 
 
-while(true): 
+while(True): 
 
     if len(sys.argv) < 2:
         sys.exit("Require an image argument")
