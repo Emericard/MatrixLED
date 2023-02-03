@@ -22,6 +22,8 @@ def display_image(image_file):
 
     matrix.SetImage(image.convert('RGB'))
 
+    time.sleep(1000)
+
     return
 
 if len(sys.argv) < 2:
