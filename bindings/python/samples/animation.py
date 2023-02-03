@@ -13,7 +13,7 @@ if len(sys.argv) < 3:
     sys.exit("Require an image argument")
 else:
     folder_path = sys.argv[1]
-    nb_frame = sys.arg[2]
+    nb_frame = sys.argv[2]
     while(True): 
         for i in range(nb_frame): 
             image_file = folder_path + "/frame_" + str(i)
