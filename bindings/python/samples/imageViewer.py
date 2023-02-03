@@ -34,6 +34,7 @@ else:
 display_image(image_file)
 
 try:
+    print("Coucou")
     print("Press CTRL-C to stop.")
     while True:
         time.sleep(100)
