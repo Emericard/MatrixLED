@@ -10,7 +10,6 @@ import datetime
 class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
         super(Countdown, self).__init__(*args, **kwargs)
-        SampleBase.parser.add_argument("-b", "--led-brightness", action="store", help="Sets brightness level. Default: 100. Range: 1..100", default=100, type=int)
     
     def calculate_delta(self):
         """Calculates the number of days until next xmas"""
@@ -22,9 +21,11 @@ class Countdown(SampleBase):
         minutes = (delta.seconds -3600*hours) // 60
         seconds = delta.seconds -3600*hours - 60*minutes
         return [days, hours, minutes, seconds]        
-        
+    
+
     
     def run(self):
+        self.process(brightness = 20)
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
