@@ -16,7 +16,7 @@ else:
     nb_frame = sys.argv[2]
     while(True): 
         for i in range(int(nb_frame)): 
-            image_file = folder_path + "/frame_" + str(i)
+            image_file = folder_path + "/frame_" + str(i) + ".gif"
             display_image(image_file)
 
 try:
