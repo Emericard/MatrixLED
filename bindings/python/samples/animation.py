@@ -14,8 +14,8 @@ else:
     for i in range(frame): 
         image_file = sys.argv[i+1]
         display_image(image_file)
-        time.sleep(100)
-
+        while True:
+            time.sleep(100)
 
 try:
     print("Press CTRL-C to stop.")
