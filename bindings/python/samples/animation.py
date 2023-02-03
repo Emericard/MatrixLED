@@ -9,12 +9,14 @@ from PIL import Image
 frame = len(sys.argv) 
 
 
-if len(sys.argv) < 2:
+if len(sys.argv) < 4:
     sys.exit("Require an image argument")
 else:
+    folder_path = sys.argv[1]
+    nb_frame = sys.arg[2]
     while(True): 
-        for i in range(frame-1): 
-            image_file = sys.argv[i+1]
+        for i in range(nb_frame): 
+            image_file = folder_path + "/frame_" + str(i)
             display_image(image_file)
 
 try:
