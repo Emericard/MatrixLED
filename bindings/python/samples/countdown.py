@@ -32,7 +32,7 @@ class Countdown(SampleBase):
             delta = self.calculate_delta()
             string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
             len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), string)
-
+            time.sleep(0.05)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
 
 # Main function
