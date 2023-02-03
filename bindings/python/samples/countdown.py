@@ -7,6 +7,10 @@ import time
 import datetime
 
 
+class GraphicsTest(SampleBase):
+    def __init__(self, *args, **kwargs):
+        super(GraphicsTest, self).__init__(*args, **kwargs)
+
     def calculate_days_to_xmas():
         """Calculates the number of days until next xmas"""
         now = datetime.datetime.now()
@@ -18,22 +22,25 @@ import datetime
         return abs(int(delta.days))
 
 
-def affichage_countdown():
-    chiffre = calculate_days_to_xmas()
-    options = RGBMatrixOptions()
-    matrice = RGBMatrix(options = options)
-    offscreen_canvas = matrice.matrix.CreateFrameCanvas()
-    font = graphics.Font()
-    font.LoadFont("../../../fonts/7x13.bdf")
-    len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
+    def affichage_countdown():
+        chiffre = calculate_days_to_xmas()
+        options = RGBMatrixOptions()
+        matrice = RGBMatrix(options = options)
+        offscreen_canvas = matrice.matrix.CreateFrameCanvas()
+        font = graphics.Font()
+        font.LoadFont("../../../fonts/7x13.bdf")
+        len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
 
-    offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
-
+        offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
 
 
 
 # Main function
-affichage_countdown()
+if __name__ == "__main__":
+    countdown = Countdown()
+    if (not countdown.process()):
+        countdown.print_help()
+
 
 try:
     print("Press CTRL-C to stop.")
