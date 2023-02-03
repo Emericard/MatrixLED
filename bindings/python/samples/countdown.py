@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 # Display a runtext with double-buffering.
+from samplebase import SampleBase
 from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 
 import time
 import datetime
 
 
-def calculate_days_to_xmas():
+    def calculate_days_to_xmas():
         """Calculates the number of days until next xmas"""
         now = datetime.datetime.now()
         year = now.year
@@ -21,10 +22,10 @@ def affichage_countdown():
     chiffre = calculate_days_to_xmas()
     options = RGBMatrixOptions()
     matrice = RGBMatrix(options = options)
-    offscreen_canvas = matrice.CreateFrameCanvas()
-    font = graphics.Font()
-    font.LoadFont("../../../fonts/7x13.bdf")
-    len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
+        offscreen_canvas = matrice.CreateFrameCanvas()
+        font = graphics.Font()
+        font.LoadFont("../../../fonts/7x13.bdf")
+        len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
 
     offscreen_canvas = matrix.SwapOnVSync(offscreen_canvas)
 
