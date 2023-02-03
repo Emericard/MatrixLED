@@ -16,7 +16,7 @@ class Countdown(SampleBase):
         now = datetime.datetime.now()
         deadline = datetime.datetime(year=2023, month=12, day=25)
         delta = deadline - now
-        return [int(delta.days), int(delta.hour), int(delta.minute), int(delta.second)]
+        return [int(delta.days), int(delta.hours), int(delta.min), int(delta.seconds)]
 
     def countdown(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
