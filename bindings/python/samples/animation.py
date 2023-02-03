@@ -12,13 +12,12 @@ if len(sys.argv) < 2:
     sys.exit("Require an image argument")
 else:
     for i in range(frame): 
-        print("Frame" + frame)
-        print(i)
         image_file = sys.argv[i+1]
         display_image(image_file)
 
 try:
     print("Press CTRL-C to stop.")
+    print("Frame" + frame)
     while True:
         time.sleep(100)
 except KeyboardInterrupt:
