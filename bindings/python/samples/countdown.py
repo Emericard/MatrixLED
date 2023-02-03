@@ -19,7 +19,8 @@ def calculate_days_to_xmas():
 
 def affichage_countdown():
     chiffre = calculate_days_to_xmas()
-    matrice = RGBMatrix()
+    options = RGBMatrixOptions()
+    matrice = RGBMatrix(options = options)
     offscreen_canvas = matrice.CreateFrameCanvas()
     font = graphics.Font()
     font.LoadFont("../../../fonts/7x13.bdf")
