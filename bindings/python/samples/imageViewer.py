@@ -30,3 +30,10 @@ else:
     image_file = sys.argv[1]
 
 display_image(image_file)
+
+try:
+    print("Press CTRL-C to stop.")
+    while True:
+        time.sleep(100)
+except KeyboardInterrupt:
+    sys.exit(0)
