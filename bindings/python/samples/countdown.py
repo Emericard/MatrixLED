@@ -22,7 +22,7 @@ class Countdown(SampleBase):
         return abs(int(delta.days))
 
 
-    def affichage_countdown(self):
+    def run(self):
         chiffre = self.calculate_days_to_xmas()
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
@@ -36,7 +36,6 @@ class Countdown(SampleBase):
 # Main function
 if __name__ == "__main__":
     countdown = Countdown()
-    countdown.affichage_countdown()
     if (not countdown.process()):
         countdown.print_help()
 
