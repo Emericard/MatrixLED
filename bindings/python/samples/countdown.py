@@ -7,9 +7,9 @@ import time
 import datetime
 
 
-class GraphicsTest(SampleBase):
+class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
-        super(GraphicsTest, self).__init__(*args, **kwargs)
+        super(Countdown, self).__init__(*args, **kwargs)
 
     def calculate_days_to_xmas():
         """Calculates the number of days until next xmas"""
@@ -22,8 +22,8 @@ class GraphicsTest(SampleBase):
         return abs(int(delta.days))
 
 
-    def affichage_countdown():
-        chiffre = calculate_days_to_xmas()
+    def affichage_countdown(self):
+        chiffre = self.calculate_days_to_xmas()
         options = RGBMatrixOptions()
         matrice = RGBMatrix(options = options)
         offscreen_canvas = matrice.matrix.CreateFrameCanvas()
@@ -38,6 +38,7 @@ class GraphicsTest(SampleBase):
 # Main function
 if __name__ == "__main__":
     countdown = Countdown()
+    countdown.affichage.countdown()
     if (not countdown.process()):
         countdown.print_help()
 
