@@ -11,7 +11,7 @@ class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
         super(Countdown, self).__init__(*args, **kwargs)
 
-    def calculate_days_to_xmas():
+    def calculate_days_to_xmas(self):
         """Calculates the number of days until next xmas"""
         now = datetime.datetime.now()
         year = now.year
