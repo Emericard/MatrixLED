@@ -5,12 +5,12 @@ import sys
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
-def display_image(): 
+if len(sys.argv) < 2:
+    sys.exit("Require an image argument")
+else:
+    image_file = sys.argv[1]
 
-    if len(sys.argv) < 2:
-        sys.exit("Require an image argument")
-    else:
-        image_file = sys.argv[1]
+def display_image(image_files): 
 
     image = Image.open(image_file)
 
