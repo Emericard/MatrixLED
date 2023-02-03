@@ -7,7 +7,7 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
 frame = len(sys.argv) 
-print("Frame" + frame)
+print(frame)
 
 if len(sys.argv) < 2:
     sys.exit("Require an image argument")
