@@ -24,13 +24,12 @@ class Countdown(SampleBase):
 
     def affichage_countdown(self):
         chiffre = self.calculate_days_to_xmas()
-        matrice = self.matrix
-        offscreen_canvas = matrice.CreateFrameCanvas()
+        offscreen_canvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
         len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
 
-        offscreen_canvas = matrice.SwapOnVSync(offscreen_canvas)
+        offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
 
 
 
