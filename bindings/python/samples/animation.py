@@ -6,7 +6,7 @@ from imageViewer import display_image
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
-frame = len(sys.arg) 
+frame = len(sys.argv) 
 
 if len(sys.argv) < 2:
     sys.exit("Require an image argument")
