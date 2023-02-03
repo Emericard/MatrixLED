@@ -7,6 +7,7 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
 frame = len(sys.argv) 
+print("Frame" + frame)
 
 if len(sys.argv) < 2:
     sys.exit("Require an image argument")
@@ -17,7 +18,6 @@ else:
 
 try:
     print("Press CTRL-C to stop.")
-    print("Frame" + frame)
     while True:
         time.sleep(100)
 except KeyboardInterrupt:
