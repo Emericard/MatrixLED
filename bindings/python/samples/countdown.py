@@ -10,7 +10,7 @@ import datetime
 class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
         super(Countdown, self).__init__(*args, **kwargs)
-
+        self.parser.add_argument("-b", "--led-brightness", action="store", help="Sets brightness level. Default: 100. Range: 1..100", default=100, type=int)
     
     def calculate_delta(self):
         """Calculates the number of days until next xmas"""
