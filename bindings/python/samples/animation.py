@@ -13,8 +13,8 @@ if len(sys.argv) < 2:
 else:
     for i in range(frame): 
         image_file = sys.argv[i+1]
-
-display_image(image_file)
+        display_image(image_file)
+        time.sleep(100)
 
 
 try:
