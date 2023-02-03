@@ -8,18 +8,18 @@ from PIL import Image
 
 frame = len(sys.argv) 
 
-while(True): 
 
-    if len(sys.argv) < 2:
-        sys.exit("Require an image argument")
-    else:
+if len(sys.argv) < 2:
+    sys.exit("Require an image argument")
+else:
+    while(True): 
         for i in range(frame-1): 
             image_file = sys.argv[i+1]
             display_image(image_file)
 
-    try:
-        print("Press CTRL-C to stop.")
-        while True:
-            time.sleep(100)
-    except KeyboardInterrupt:
-        sys.exit(0)
+try:
+    print("Press CTRL-C to stop.")
+    while True:
+        time.sleep(100)
+except KeyboardInterrupt:
+    sys.exit(0)
