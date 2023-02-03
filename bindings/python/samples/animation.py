@@ -1,8 +1,8 @@
 #!/usr/bin/python
-import imageViewer
 import time
 import sys
 
+from imageViewer import display_image
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
@@ -11,7 +11,7 @@ if len(sys.argv) < 2:
 else:
     image_file = sys.argv[1]
 
-imageViewer.display_image(image_file)
+display_image(image_file)
 
 
 try:
