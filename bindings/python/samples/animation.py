@@ -9,7 +9,7 @@ from PIL import Image
 frame = len(sys.argv) 
 
 
-if len(sys.argv) < 4:
+if len(sys.argv) < 3:
     sys.exit("Require an image argument")
 else:
     folder_path = sys.argv[1]
