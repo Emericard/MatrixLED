@@ -25,8 +25,8 @@ class Countdown(SampleBase):
 
     
     def run(self):
-        self.process(brightness = 20)
         offscreen_canvas = self.matrix.CreateFrameCanvas()
+        offscreen_canvas.brightness = 20
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
         while True :
