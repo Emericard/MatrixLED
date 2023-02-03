@@ -27,7 +27,7 @@ class Countdown(SampleBase):
         font = graphics.Font()
         delta = self.calculate_delta()
         font.LoadFont("../../../fonts/7x13.bdf")
-        string = delta[0] + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
+        string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
         len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), string)
 
         offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
