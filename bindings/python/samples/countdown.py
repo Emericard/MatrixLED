@@ -1,25 +1,9 @@
 #!/usr/bin/env python
 # Display a runtext with double-buffering.
-from samplebase import SampleBase
-from rgbmatrix import graphics
+from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 
 import time
 import datetime
-
-class RunText(SampleBase):
-    def __init__(self, *args, **kwargs):
-        super(RunText, self).__init__(*args, **kwargs)
-        self.parser.add_argument("-t", "--text", help="The text to scroll on the RGB LED panel", default="Hello world!")
-
-    def run(self):
-        offscreen_canvas = self.matrix.CreateFrameCanvas()
-        font = graphics.Font()
-        font.LoadFont("../../../fonts/7x13.bdf")
-        color = graphics.Color(255,0,0)
-        print(color)
-        pos = offscreen_canvas.width
-        my_text = self.args.text
-
 
 
 def calculate_days_to_xmas():
@@ -35,7 +19,8 @@ def calculate_days_to_xmas():
 
 def affichage_countdown():
     chiffre = calculate_days_to_xmas()
-    offscreen_canvas = SampleBase.matrix.CreateFrameCanvas()
+    matrice = RGBMatrix()
+    offscreen_canvas = matrice.CreateFrameCanvas()
     font = graphics.Font()
     font.LoadFont("../../../fonts/7x13.bdf")
     len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
