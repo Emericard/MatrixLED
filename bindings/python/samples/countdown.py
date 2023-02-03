@@ -29,17 +29,20 @@ class Countdown(SampleBase):
         seconds = seconds_total - hours*3600 - minutes*60
         return [hours, minutes, seconds]
 
-    def run(self):
+    def countdown(self):
         chiffre = self.calculate_days_to_xmas()
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         seconds_total = self.calculate_seconds()
         font.LoadFont("../../../fonts/7x13.bdf")
-        string = str(chiffre) + "d" + str(seconds_total[0]) + "h" + str(seconds_total[1]) + "min" + str(seconds_total[2]) + "s"
+        string = str(chiffre) + "d " + str(seconds_total[0]) + "h " + str(seconds_total[1]) + "min " + str(seconds_total[2]) + "s "
         len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), string)
 
         offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
-
+    
+    def run(self):
+        while True :
+            self.countdown()
 
 
 # Main function
