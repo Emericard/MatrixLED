@@ -38,7 +38,7 @@ class Countdown(SampleBase):
 # Main function
 if __name__ == "__main__":
     countdown = Countdown()
-    countdown.affichage.countdown()
+    countdown.affichage_countdown()
     if (not countdown.process()):
         countdown.print_help()
 
