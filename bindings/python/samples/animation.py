@@ -15,7 +15,7 @@ else:
     folder_path = sys.argv[1]
     nb_frame = sys.argv[2]
     while(True): 
-        for i in range(nb_frame): 
+        for i in range(int(nb_frame)): 
             image_file = folder_path + "/frame_" + str(i)
             display_image(image_file)
 
