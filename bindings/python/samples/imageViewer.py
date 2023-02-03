@@ -22,7 +22,7 @@ def display_image(image_file):
 
     matrix.SetImage(image.convert('RGB'))
 
-    time.sleep(1)
+    time.sleep(0.2)
 
     return
 
