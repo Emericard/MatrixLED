@@ -27,7 +27,7 @@ class Countdown(SampleBase):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
-        len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), chiffre)
+        len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), str(chiffre))
 
         offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
 
