@@ -7,12 +7,13 @@ from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
 frame = len(sys.argv) 
-print(frame)
 
 if len(sys.argv) < 2:
     sys.exit("Require an image argument")
 else:
     for i in range(frame): 
+        print(frame)
+        print(i)
         image_file = sys.argv[i+1]
         display_image(image_file)
 
