@@ -2,8 +2,9 @@
 # Display a runtext with double-buffering.
 from samplebase import SampleBase
 from rgbmatrix import graphics
-
+from decimal import ROUND_UP
 import time
+from datetime import datetime
 
 
 class RunText(SampleBase):
@@ -51,27 +52,12 @@ graphics.Color(247, 218, 18),
 graphics.Color(250, 223, 12),
 graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
-        iteration = 0
-        sens = 1
-        while True:
-            offscreen_canvas.Clear()
-            iteration += sens
-            if iteration == 31 or iteration == 0:
-                sens = -sens
-            len = graphics.DrawText(offscreen_canvas, font, pos, 10, colors[iteration], my_text)
-            pos -= 1
-            if (pos + len < 16):
-                pos = offscreen_canvas.width
 
-            time.sleep(0.05)
-            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
-
-        print(offscreen_canvas)
-
-def runtextfct():
-    run_text = RunText()
-    if (not run_text.process()):
-        run_text.print_help()
+        now = datetime.now()
+        pos = ROUND_UP(64*now.second/60)
+        offscreen_canvas.Clear()
+        len = graphics.DrawText(offscreen_canvas, font, pos, 10, colors[ROUND_UP(31*now.second/60)], my_text)
+        return len
 
 
 # Main function

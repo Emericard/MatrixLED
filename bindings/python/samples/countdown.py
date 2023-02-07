@@ -26,18 +26,13 @@ class Countdown(SampleBase):
     
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
-        offscreen_canvas.brightness = 20
         font = graphics.Font()
+        offscreen_canvas.brightness = 20
         font.LoadFont("../../../fonts/7x13.bdf")
-        while True :
-            
-            delta = self.calculate_delta()
-            string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
-            
-            offscreen_canvas.Clear()
-            len = graphics.DrawText(offscreen_canvas, font, 10, 10, graphics.Color(255,255,255), string)
-            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
-
+        delta = self.calculate_delta()
+        string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
+        len = graphics.DrawText(offscreen_canvas, font, 20, 20, graphics.Color(255,255,255), string)
+        return len
 
 # Main function
 if __name__ == "__main__":
