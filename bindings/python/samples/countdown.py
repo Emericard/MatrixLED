@@ -85,11 +85,13 @@ graphics.Color(255, 234, 0)]
         return pos
 
 
-    def set_image(self, canvas):
+    def set_image(self, canvas, frame):
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
-        now = datetime.datetime.now()
-        image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
+        frame += 1
+        if frame > nb_frame:
+            frame = 0
+        image_file = folder_path + "/frame_" + str(frame) + ".gif"
         im = Image.open(image_file)
         rgbImage = im.convert ('RGB')
         [width, height] = im.size
@@ -97,15 +99,6 @@ graphics.Color(255, 234, 0)]
             for j in range(height):
                 colors = rgbImage.getpixel((i,j))
                 test = canvas.SetPixel(i, j, colors[0], colors[1],colors[2])
-
-    
-    def animation(self, canvas, x = 0, y = 0) :
-        folder_path = self.args.gifPath
-        nb_frame = self.args.nb_frames
-        now = datetime.datetime.now()
-        image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
-        canvas = self.set_image(image_file, x, y)
-        return canvas
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
