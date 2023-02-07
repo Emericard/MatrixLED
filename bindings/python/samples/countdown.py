@@ -80,6 +80,7 @@ graphics.Color(255, 234, 0)]
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         while True :
+            offscreen_canvas.Clear()
             self.countdown(offscreen_canvas, 20,20)
             self.runtext(offscreen_canvas)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
