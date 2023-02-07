@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # Display a runtext with double-buffering.
+from math import ceil
 from samplebase import SampleBase
 from rgbmatrix import graphics
-from decimal import ROUND_UP
 import time
 from datetime import datetime
 
@@ -54,9 +54,9 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
 
         now = datetime.now()
-        pos = ROUND_UP(64*now.second/60)
+        pos = ceil(64*now.second/60)
         offscreen_canvas.Clear()
-        len = graphics.DrawText(offscreen_canvas, font, pos, 10, colors[ROUND_UP(31*now.second/60)], my_text)
+        len = graphics.DrawText(offscreen_canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
         return len
 
 
