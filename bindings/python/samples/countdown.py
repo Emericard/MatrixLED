@@ -26,7 +26,7 @@ class Countdown(SampleBase):
     
     def countdown(self,canvas, x = 20, y = 20) :
         font = graphics.Font()
-        canvas.brightness = 20
+        canvas.brightness = 40
         font.LoadFont("../../../fonts/7x13.bdf")
         delta = self.calculate_delta()
         string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
