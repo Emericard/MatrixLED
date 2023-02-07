@@ -1,12 +1,12 @@
 #!/usr/bin/python
-import imageViewer
-print("Image")
 import sys
 print("sys")
-import runtext
-print("runtext")
+from runtext import RunText
+from countdown import Countdown
 import time
 
+runtext = RunText()
+countdown = Countdown()
 
 try:
     print("Press CTRL-C to stop.")
