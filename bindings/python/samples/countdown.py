@@ -77,7 +77,7 @@ graphics.Color(255, 234, 0)]
         pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.second/60))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
-    def display_image(image_file, x = 0, y = 0): 
+    def display_image(self, image_file, x = 0, y = 0): 
 
         image = Image.open(image_file)
 
@@ -101,7 +101,7 @@ graphics.Color(255, 234, 0)]
         nb_frame = self.args.nb_frames
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
-        display_image(image_file, x, y)
+        self.display_image(image_file, x, y)
 
 
     def run(self):
