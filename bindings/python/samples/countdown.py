@@ -107,7 +107,7 @@ graphics.Color(255, 234, 0)]
         frame = 0
         while True :
             offscreen_canvas.Clear()
-            self.countdown(offscreen_canvas, 20,20)
+            self.countdown(offscreen_canvas, 40,20)
             pos = self.runtext(offscreen_canvas, pos)
             frame = self.set_image(offscreen_canvas, frame)
             time.sleep(0.1)
