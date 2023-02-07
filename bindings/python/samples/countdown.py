@@ -80,7 +80,6 @@ graphics.Color(255, 234, 0)]
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
     def set_image(self, canvas):
-        
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
         now = datetime.datetime.now()
@@ -90,8 +89,8 @@ graphics.Color(255, 234, 0)]
         [width, height] = im.size
         for i in range(width):
             for j in range(height):
-                test = canvas.SetPixel(15, 15, 17,255,25)
-        print(rgbImage.getpixel((15,15)))  # Get the RGBA Value of the a pixel of an image
+                colors = rgbImage.getpixel((i,j))
+                test = canvas.SetPixel(i, j, colors[0], colors[1],colors[2])
     
     
     def animation(self, canvas, x = 0, y = 0) :
