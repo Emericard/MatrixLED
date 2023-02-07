@@ -91,8 +91,10 @@ graphics.Color(255, 234, 0)]
         for i in range(width):
             for j in range(height):
                 test = canvas.SetPixel(15, 15, 17,255,25)
-        coordinate = x, y = 15, 15
-        print(px[15,15])  # Get the RGBA Value of the a pixel of an image
+        pixels = list(im.getdata())
+        x = 15
+        y = 15
+        print(pixels[width*y+x])  # Get the RGBA Value of the a pixel of an image
     
     
     def animation(self, canvas, x = 0, y = 0) :
