@@ -78,7 +78,7 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos -= 1 
         if pos == 0:
-            pos = 64
+            pos = 64 + len(my_text)
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
         #for i in range(10):
         #    lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
@@ -103,7 +103,7 @@ graphics.Color(255, 234, 0)]
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
-        pos = 0
+        pos = 64
         frame = 0
         while True :
             offscreen_canvas.Clear()
