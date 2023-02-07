@@ -112,7 +112,7 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
         canvas = self.display_image(image_file, x, y)
-        retrn canvas
+        return canvas
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
