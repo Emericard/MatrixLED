@@ -83,7 +83,7 @@ graphics.Color(255, 234, 0)]
             offscreen_canvas.Clear()
             self.countdown(offscreen_canvas, 10,20)
             self.runtext(offscreen_canvas)
-            time.sleep(0.5)
+            time.sleep(0.05)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
         return
     
