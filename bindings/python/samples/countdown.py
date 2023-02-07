@@ -31,7 +31,6 @@ class Countdown(SampleBase):
         delta = self.calculate_delta()
         string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
         len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
-        canvas = self.matrix.SwapOnVSync(canvas)
   
   
     def runtext(self, canvas):
@@ -71,11 +70,10 @@ graphics.Color(247, 218, 18),
 graphics.Color(250, 223, 12),
 graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
-
         now = datetime.datetime.now()
         pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.second/60))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
-
+        rect = graphics.fillRect(0, 0, 32, 16, graphics.Color(0, 255, 0))
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
