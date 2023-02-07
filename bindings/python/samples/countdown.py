@@ -90,7 +90,8 @@ graphics.Color(255, 234, 0)]
         for i in range(width):
             for j in range(height):
                 test = canvas.SetPixel(15, 15, 17,255,25)
-        rgba = im.getpixel[(15,15)]
+        coordinate = x, y = 150, 59
+        rgba = im.getpixel((15,15))
         print(rgba)  # Get the RGBA Value of the a pixel of an image
     
     
