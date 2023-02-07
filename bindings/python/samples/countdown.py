@@ -38,7 +38,7 @@ class Countdown(SampleBase):
         len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
   
   
-    def runtext(self, canvas, pos):
+    def runtext(self, canvas, pos, length):
         font = graphics.Font()
         canvas.brightness = 100
         font.LoadFont("../../../fonts/7x13.bdf")
@@ -78,12 +78,12 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos -= 1 
         print(pos)
-        if pos + len(my_text) == 0:
-            pos = 64 + len(my_text)
+        if pos + length == 0:
+            pos = canvas.width + length
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
         #for i in range(10):
         #    lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
-        return pos
+        return pos, lenght
 
 
     def set_image(self, canvas, frame):
@@ -105,11 +105,12 @@ graphics.Color(255, 234, 0)]
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
-        pos = 64
+        pos = offscreen_canvas.width
+        length = 0
         frame = 0
         while True :
             offscreen_canvas.Clear()
-            pos = self.runtext(offscreen_canvas, pos)
+            pos, length = self.runtext(offscreen_canvas, pos, length)
             frame = self.set_image(offscreen_canvas, frame)
             self.countdown(offscreen_canvas, 30,20)
             time.sleep(0.03)
