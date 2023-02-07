@@ -73,7 +73,7 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
 
         now = datetime.datetime.now()
-        pos = ceil((64*now.second/60))
+        pos = len(my_text)+64-ceil(((len(my_text)+64)*now.second/60))
         len = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
 
