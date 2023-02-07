@@ -82,6 +82,7 @@ graphics.Color(255, 234, 0)]
             offscreen_canvas.Clear()
             self.countdown(offscreen_canvas, 20,20)
             self.runtext(offscreen_canvas)
+            time.sleep(0.5)
         return
     
     
