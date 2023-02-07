@@ -78,6 +78,10 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.second/60))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
+        for i in range(10):
+            lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
+
+
 
     def set_image(self, canvas):
         folder_path = self.args.gifPath
@@ -91,7 +95,7 @@ graphics.Color(255, 234, 0)]
             for j in range(height):
                 colors = rgbImage.getpixel((i,j))
                 test = canvas.SetPixel(i, j, colors[0], colors[1],colors[2])
-    
+
     
     def animation(self, canvas, x = 0, y = 0) :
         folder_path = self.args.gifPath
@@ -104,9 +108,9 @@ graphics.Color(255, 234, 0)]
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         while True :
-            #offscreen_canvas.Clear()
-            #self.countdown(offscreen_canvas, 10,20)
-            #self.runtext(offscreen_canvas)
+            offscreen_canvas.Clear()
+            self.countdown(offscreen_canvas, 20,20)
+            self.runtext(offscreen_canvas)
             self.set_image(offscreen_canvas)
             time.sleep(0.1)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
