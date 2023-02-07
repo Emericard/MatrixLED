@@ -40,10 +40,3 @@ if __name__ == "__main__":
     if (not countdown.process()):
         countdown.print_help()
 
-
-try:
-    print("Press CTRL-C to stop.")
-    while True:
-        time.sleep(100)
-except KeyboardInterrupt:
-    sys.exit(0)
