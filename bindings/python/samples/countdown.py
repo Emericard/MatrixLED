@@ -9,10 +9,10 @@ import datetime
 from PIL import Image
 
 deadlines = [
-    ["CTS, DCPI", datetime.datetime(year=2023, month=2, day=17) ],
-    ["ESF AIR", datetime.datetime(year=2023, month=3, day=3) ],
-    ["IAD, SE3D, SES", datetime.datetime(year=2023, month=3, day=17) ],
-    ["ESF, ASF", datetime.datetime(year=2023, month=3, day=31) ]
+    ["CTS, DCPI", datetime.datetime(year=2023, month=2, day=17) ];
+    ["ESF AIR", datetime.datetime(year=2023, month=3, day=3) ];
+    ["IAD, SE3D, SES", datetime.datetime(year=2023, month=3, day=17) ];
+    ["ESF, ASF", datetime.datetime(year=2023, month=3, day=31) ];
     ["SESA", datetime.datetime(year=2023, month=4, day=14) ]
 ]
 
