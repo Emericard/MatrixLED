@@ -76,7 +76,7 @@ graphics.Color(250, 223, 12),
 graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
-        pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.microsecond/1000000))
+        pos = len(my_text)+64-ceil(((2*len(my_text)+64)*100*now.microsecond/1000000))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
         for i in range(10):
             lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
