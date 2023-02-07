@@ -94,13 +94,25 @@ graphics.Color(255, 234, 0)]
 
         matrix.SetImage(image.convert('RGB'), x, y)
 
-    def animation(self, x = 0, y = 0) :
+    def set_image(self):
+        
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
-        self.display_image(image_file, x, y)
-
+        im = Image.open(image_file)
+        pix = im.load()
+        print im.size  # Get the width and hight of the image for iterating over
+        print pix[0,0]  # Get the RGBA Value of the a pixel of an image
+    
+    
+    def animation(self, canvas, x = 0, y = 0) :
+        folder_path = self.args.gifPath
+        nb_frame = self.args.nb_frames
+        now = datetime.datetime.now()
+        image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
+        canvas = self.display_image(image_file, x, y)
+        retrn canvas
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
@@ -108,7 +120,7 @@ graphics.Color(255, 234, 0)]
             #offscreen_canvas.Clear()
             #self.countdown(offscreen_canvas, 10,20)
             #self.runtext(offscreen_canvas)
-            self.animation()
+            self.set_image()
             time.sleep(0.1)
      #       offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
     
