@@ -73,7 +73,7 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
 
         now = datetime.datetime.now()
-        pos = ceil(64*now.second/60)
+        pos = ceil((10*64*now.second/60) % 64)
         len = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
 
@@ -81,10 +81,10 @@ graphics.Color(255, 234, 0)]
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         while True :
             offscreen_canvas.Clear()
-            self.countdown(offscreen_canvas, 20,20)
+            self.countdown(offscreen_canvas, 10,20)
             self.runtext(offscreen_canvas)
+            time.sleep(0.5)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
-            time.sleep(0.05)
         return
     
     
