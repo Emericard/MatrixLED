@@ -89,7 +89,7 @@ graphics.Color(255, 234, 0)]
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
         frame += 1
-        if frame > nb_frame:
+        if frame >= nb_frame:
             frame = 0
         image_file = folder_path + "/frame_" + str(frame) + ".gif"
         im = Image.open(image_file)
