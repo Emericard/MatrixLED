@@ -44,7 +44,7 @@ class Countdown(SampleBase):
     def runtext(self, canvas):
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
-        my_text = self.args.text
+        my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
 graphics.Color(174, 76, 182),
 graphics.Color(176, 82, 176),
