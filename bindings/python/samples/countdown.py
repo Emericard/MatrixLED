@@ -79,23 +79,6 @@ graphics.Color(255, 234, 0)]
         pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.second/60))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
-    def display_image(self, image_file, x = 0, y = 0): 
-
-        image = Image.open(image_file)
-
-        # Configuration for the matrix
-        options = RGBMatrixOptions()
-        options.rows = 32
-        options.cols = 64
-        options.chain_length = 2
-        options.gpio_slowdown = 5
-        options.parallel = 1
-        options.hardware_mapping = 'adafruit-hat'  # If you have an Adafruit HAT: 'adafruit-hat'
-
-        matrix = RGBMatrix(options = options)
-
-        matrix.SetImage(image.convert('RGB'), x, y)
-
     def set_image(self, canvas):
         
         folder_path = self.args.gifPath
@@ -103,13 +86,12 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
         im = Image.open(image_file)
-        im.convert('RGB')
         pix = im.load()
         [width, height] = im.size
         for i in range(width):
             for j in range(height):
                 test = canvas.SetPixel(15, 15, 17,255,25)
-        rgba = im.getpixel[(15,15)]
+        rgba = pix.getpixel[(15,15)]
         print(rgba)  # Get the RGBA Value of the a pixel of an image
     
     
@@ -118,7 +100,7 @@ graphics.Color(255, 234, 0)]
         nb_frame = self.args.nb_frames
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
-        canvas = self.display_image(image_file, x, y)
+        canvas = self.set_image(image_file, x, y)
         return canvas
 
     def run(self):
