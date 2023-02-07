@@ -6,7 +6,8 @@ import sys
 import time
 from math import ceil, floor
 import datetime
-from PIL import Image
+from PIL import Image, getPixel
+
 
 
 class Countdown(SampleBase):
@@ -107,7 +108,7 @@ graphics.Color(255, 234, 0)]
         for i in range(width):
             for j in range(height):
                 test = canvas.SetPixel(15, 15, 17,255,25)
-        rgba = pix[15,15]
+        rgba = getPixel[image_file, 15,15]
         print(rgba)  # Get the RGBA Value of the a pixel of an image
     
     
