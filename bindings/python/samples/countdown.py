@@ -106,7 +106,7 @@ graphics.Color(255, 234, 0)]
         [width, height] = im.size
         for i in range(width):
             for j in range(height):
-                test = canvas.SetPixel(i, j, 255,255,255)
+                test = canvas.SetPixel(15, 15, 17,255,25)
         rgba = pix[15,15]
         print(rgba)  # Get the RGBA Value of the a pixel of an image
     
