@@ -4,7 +4,6 @@ from samplebase import SampleBase
 from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 import sys
 import time
-from imageViewer import display_image
 from math import ceil, floor
 import datetime
 from PIL import Image
@@ -78,6 +77,24 @@ graphics.Color(255, 234, 0)]
         pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.second/60))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
+    def display_image(image_file, x = 0, y = 0): 
+
+        image = Image.open(image_file)
+
+        # Configuration for the matrix
+        options = RGBMatrixOptions()
+        options.rows = 32
+        options.cols = 64
+        options.chain_length = 2
+        options.gpio_slowdown = 5
+        options.parallel = 1
+        options.hardware_mapping = 'adafruit-hat'  # If you have an Adafruit HAT: 'adafruit-hat'
+
+        matrix = RGBMatrix(options = options)
+
+        matrix.SetImage(image.convert('RGB'), x, y)
+
+        time.sleep(0.1)
 
     def animation(self, x = 0, y = 30) :
         folder_path = self.args.gifPath
