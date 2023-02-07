@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 # Display a runtext with double-buffering.
 from samplebase import SampleBase
-from rgbmatrix import graphics
+from rgbmatrix import graphics, RGBMatrix, RGBMatrixOptions
 import sys
 import time
-from math import ceil
+from imageViewer import display_image
+from math import ceil, floor
 import datetime
+from PIL import Image
 
 
 class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
         super(Countdown, self).__init__(*args, **kwargs)
         self.parser.add_argument("-t", "--runtext", help="The text to scroll on the RGB LED panel", default="Hello world!")
+        self.parser.add_argument("-i", "--gifPath", help="The gpath to the gif to display", default="/Images/PizzaParrot")
+        self.parser.add_argument("-n", "--nb_frames", help="Thenumber of frames of the gif to display", default=10)
 
     def calculate_delta(self):
         """Calculates the number of days until next xmas"""
@@ -74,15 +78,24 @@ graphics.Color(255, 234, 0)]
         pos = len(my_text)+64-ceil(((2*len(my_text)+64)*now.second/60))
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
+
+    def animation(self, x = 0, y = 30) :
+        folder_path = self.args.gifPath
+        nb_frame = self.args.nb_frames
+        now = datetime.datetime.now()
+        image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
+        display_image(image_file, x, y)
+
+
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         while True :
             offscreen_canvas.Clear()
             self.countdown(offscreen_canvas, 10,20)
             self.runtext(offscreen_canvas)
+            self.animation()
             time.sleep(0.05)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
-        return
     
     
 # Main function

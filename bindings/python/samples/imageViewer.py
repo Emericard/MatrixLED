@@ -5,7 +5,7 @@ import sys
 from rgbmatrix import RGBMatrix, RGBMatrixOptions
 from PIL import Image
 
-def display_image(image_file): 
+def display_image(image_file, x = 0, y = 0): 
 
     image = Image.open(image_file)
 
@@ -20,7 +20,7 @@ def display_image(image_file):
 
     matrix = RGBMatrix(options = options)
 
-    matrix.SetImage(image.convert('RGB'))
+    matrix.SetImage(image.convert('RGB'), x, y)
 
     time.sleep(0.1)
 
