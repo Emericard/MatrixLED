@@ -32,15 +32,8 @@ class Countdown(SampleBase):
         string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
         len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
         canvas = self.matrix.SwapOnVSync(canvas)
-    
-    def run(self):
-        offscreen_canvas = self.matrix.CreateFrameCanvas()
-        while True :
-            offscreen_canvas.Clear()
-            self.countdown(offscreen_canvas, 20,20)
-            self.runtext(offscreen_canvas)
-        return
-    
+  
+  
     def runtext(self, canvas):
         font = graphics.Font()
         font.LoadFont("../../../fonts/7x13.bdf")
@@ -78,11 +71,20 @@ graphics.Color(250, 223, 12),
 graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
 
-        now = datetime.now()
+        now = datetime.datetime.now()
         pos = ceil(64*now.second/60)
         len = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
 
 
+    def run(self):
+        offscreen_canvas = self.matrix.CreateFrameCanvas()
+        while True :
+            offscreen_canvas.Clear()
+            self.countdown(offscreen_canvas, 20,20)
+            self.runtext(offscreen_canvas)
+        return
+    
+    
 # Main function
 if __name__ == "__main__":
     countdown = Countdown()
