@@ -101,6 +101,7 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
         im = Image.open(image_file)
+        im.convert('RGB')
         pix = im.load()
         [width, height] = im.size
         for i in range(width):
