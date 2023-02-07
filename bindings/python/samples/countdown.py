@@ -86,6 +86,7 @@ graphics.Color(255, 234, 0)]
 
 
     def set_image(self, canvas, frame):
+        canvas.brightness = 60
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
         frame += 1
