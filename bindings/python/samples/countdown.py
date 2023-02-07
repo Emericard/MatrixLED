@@ -6,7 +6,8 @@ import sys
 import time
 from math import ceil, floor
 import datetime
-from PIL import Image, getpixel
+from PIL import Image
+
 
 
 
