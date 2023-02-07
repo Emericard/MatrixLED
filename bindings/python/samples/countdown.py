@@ -39,7 +39,6 @@ class Countdown(SampleBase):
         font = graphics.Font()
         canvas.brightness = 40
         font.LoadFont("../../../fonts/7x13.bdf")
-        delta = self.calculate_delta()
         string = ""
         for i in range(len(graphics[:,1])):
             delta = self.calculate_delta(i)
