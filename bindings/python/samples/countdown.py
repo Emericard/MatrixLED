@@ -47,7 +47,7 @@ class Countdown(SampleBase):
         #len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
         return string
   
-    def runtext(self, canvas, pos, length, text = "Coucou!"):
+    def runtext(self, canvas, pos, length):
         font = graphics.Font()
         canvas.brightness = 100
         font.LoadFont("../../../fonts/7x13.bdf")
@@ -88,11 +88,53 @@ graphics.Color(255, 234, 0)]
         pos -= 1 
         if pos + length == 0:
             pos = canvas.width
-        lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], text)
-        #for i in range(10):
-        #    lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
+        lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
+        for i in range(10):
+            lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
         return pos, lenght
-
+    
+    def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
+        font = graphics.Font()
+        canvas.brightness = 100
+        font.LoadFont("../../../fonts/7x13.bdf")
+        colors = [graphics.Color(171, 71, 188),
+graphics.Color(174, 76, 182),
+graphics.Color(176, 82, 176),
+graphics.Color(179, 87, 170),
+graphics.Color(182, 92, 164),
+graphics.Color(185, 97, 158),
+graphics.Color(187, 103, 152),
+graphics.Color(190, 108, 146),
+graphics.Color(193, 113, 139),
+graphics.Color(195, 118, 133),
+graphics.Color(198, 124, 127),
+graphics.Color(201, 129, 121),
+graphics.Color(204, 134, 115),
+graphics.Color(206, 139, 109),
+graphics.Color(209, 145, 103),
+graphics.Color(212, 150, 97),
+graphics.Color(214, 155, 91),
+graphics.Color(217, 160, 85),
+graphics.Color(220, 166, 79),
+graphics.Color(222, 171, 73),
+graphics.Color(225, 176, 67),
+graphics.Color(228, 181, 61),
+graphics.Color(231, 187, 55),
+graphics.Color(233, 192, 49),
+graphics.Color(236, 197, 42),
+graphics.Color(239, 202, 36),
+graphics.Color(241, 208, 30),
+graphics.Color(244, 213, 24),
+graphics.Color(247, 218, 18),
+graphics.Color(250, 223, 12),
+graphics.Color(252, 229, 6),
+graphics.Color(255, 234, 0)]
+        now = datetime.datetime.now()
+        pos -= 1 
+        if pos + length == 0:
+            pos = canvas.width
+        lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], text)
+        return pos, lenght
 
     def set_image(self, canvas, frame):
         canvas.brightness = 60
@@ -119,7 +161,7 @@ graphics.Color(255, 234, 0)]
         while True :
             offscreen_canvas.Clear()
             text = self.countdown(offscreen_canvas, 30,20)
-            pos, length = self.runtext(offscreen_canvas, pos, length, text)
+            pos, length = self.run_deadlines(offscreen_canvas, pos, length, text)
             frame = self.set_image(offscreen_canvas, frame)
             #time.sleep(0.03)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
