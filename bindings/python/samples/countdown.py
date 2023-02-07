@@ -40,9 +40,9 @@ class Countdown(SampleBase):
         canvas.brightness = 40
         font.LoadFont("../../../fonts/7x13.bdf")
         string = ""
-        for i in range(len(deadlines)//2):
+        for i in range(len(deadlines)):
             delta = self.calculate_delta(i)
-            string += deadlines[i][0] + " : " + str(delta[0]) + "d " + str(delta[1]) + "h "
+            string += deadlines[i][0] + ": " + str(delta[0]) + "d " + str(delta[1]) + "h, "
         #string += str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
         #len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
         return string
