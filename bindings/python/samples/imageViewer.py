@@ -27,6 +27,6 @@ def display_image(image_file, x = 0, y = 0):
     return
 
 if len(sys.argv) < 2:
-    sys.exit("Require an image argument")
+    sys.exit("Test-Require an image argument")
 else:
     image_file = sys.argv[1]
