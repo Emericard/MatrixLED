@@ -94,7 +94,7 @@ graphics.Color(255, 234, 0)]
 
         matrix.SetImage(image.convert('RGB'), x, y)
 
-    def animation(self, x = 0, y = 30) :
+    def animation(self, x = 0, y = 0) :
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
         now = datetime.datetime.now()
