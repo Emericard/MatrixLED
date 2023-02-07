@@ -79,7 +79,7 @@ graphics.Color(255, 234, 0)]
         pos -= 1 
         print(pos)
         if pos + length == 0:
-            pos = canvas.width + length
+            pos = canvas.width
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
         #for i in range(10):
         #    lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
