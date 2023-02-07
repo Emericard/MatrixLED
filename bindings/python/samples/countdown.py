@@ -99,15 +99,17 @@ graphics.Color(255, 234, 0)]
             for j in range(height):
                 colors = rgbImage.getpixel((i,j))
                 test = canvas.SetPixel(i, j, colors[0], colors[1],colors[2])
+        return frame
 
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         pos = 0
+        frame = 0
         while True :
             offscreen_canvas.Clear()
             self.countdown(offscreen_canvas, 20,20)
             pos = self.runtext(offscreen_canvas, pos)
-            self.set_image(offscreen_canvas)
+            frame = self.set_image(offscreen_canvas, frame)
             time.sleep(0.1)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
     
