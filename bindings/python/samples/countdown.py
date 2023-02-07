@@ -86,15 +86,12 @@ graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
         im = Image.open(image_file)
-        px = im.load()
+        rgbImage = im.convert ('RGB')
         [width, height] = im.size
         for i in range(width):
             for j in range(height):
                 test = canvas.SetPixel(15, 15, 17,255,25)
-        pixels = list(im.getdata())
-        x = 15
-        y = 15
-        print(pixels[width*y+x])  # Get the RGBA Value of the a pixel of an image
+        print(rgbImage.getpixel(x,y))  # Get the RGBA Value of the a pixel of an image
     
     
     def animation(self, canvas, x = 0, y = 0) :
