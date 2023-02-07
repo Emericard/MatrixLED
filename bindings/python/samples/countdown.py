@@ -87,7 +87,6 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos -= 1 
-        print(pos)
         if pos + length == 0:
             pos = canvas.width
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], text)
