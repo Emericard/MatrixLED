@@ -102,8 +102,8 @@ graphics.Color(255, 234, 0)]
         image_file = folder_path + "/frame_" + str(floor(nb_frame*now.second/60)) + ".gif"
         im = Image.open(image_file)
         pix = im.load()
-        print im.size  # Get the width and hight of the image for iterating over
-        print pix[0,0]  # Get the RGBA Value of the a pixel of an image
+        print(im.size)  # Get the width and hight of the image for iterating over
+        print(pix[0,0])  # Get the RGBA Value of the a pixel of an image
     
     
     def animation(self, canvas, x = 0, y = 0) :
