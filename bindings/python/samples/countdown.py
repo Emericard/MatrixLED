@@ -94,8 +94,6 @@ graphics.Color(255, 234, 0)]
 
         matrix.SetImage(image.convert('RGB'), x, y)
 
-        time.sleep(0.1)
-
     def animation(self, x = 0, y = 30) :
         folder_path = self.args.gifPath
         nb_frame = self.args.nb_frames
@@ -108,10 +106,10 @@ graphics.Color(255, 234, 0)]
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         while True :
             offscreen_canvas.Clear()
-            self.countdown(offscreen_canvas, 10,20)
-            self.runtext(offscreen_canvas)
+            #self.countdown(offscreen_canvas, 10,20)
+            #self.runtext(offscreen_canvas)
             self.animation()
-            time.sleep(0.05)
+            time.sleep(0.1)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
     
     
