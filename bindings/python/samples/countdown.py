@@ -8,7 +8,13 @@ from math import ceil, floor
 import datetime
 from PIL import Image
 
-
+deadlines = [
+    ["CTS, DCPI", datetime.datetime(year=2023, month=2, day=17) ],
+    ["ESF AIR", datetime.datetime(year=2023, month=3, day=3) ],
+    ["IAD, SE3D, SES", datetime.datetime(year=2023, month=3, day=17) ],
+    ["ESF, ASF", datetime.datetime(year=2023, month=3, day=31) ]
+    ["SESA", datetime.datetime(year=2023, month=4, day=14) ]
+]
 
 
 class Countdown(SampleBase):
@@ -18,10 +24,10 @@ class Countdown(SampleBase):
         self.parser.add_argument("-i", "--gifPath", help="The gpath to the gif to display", default="Images/PizzaParrot")
         self.parser.add_argument("-n", "--nb_frames", help="Thenumber of frames of the gif to display", default=10)
 
-    def calculate_delta(self):
+    def calculate_delta(self, i):
         """Calculates the number of days until next xmas"""
         now = datetime.datetime.now()
-        deadline = datetime.datetime(year=2023, month=12, day=25)
+        deadline = deadlines[i][1]
         delta = deadline - now
         days = delta.days
         hours = delta.seconds // 3600
@@ -34,15 +40,19 @@ class Countdown(SampleBase):
         canvas.brightness = 40
         font.LoadFont("../../../fonts/7x13.bdf")
         delta = self.calculate_delta()
-        string = str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
-        len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
+        string = ""
+        for i in range(len(graphics[:,1])):
+            delta = self.calculate_delta(i)
+            string += deadlines[i][0] + " : " + str(delta[0]) + "d " + str(delta[1]) + "h "
+        #string += str(delta[0]) + "d " + str(delta[1]) + "h " + str(delta[2]) + "min " + str(delta[3]) + "s "
+        #len = graphics.DrawText(canvas, font, x, y, graphics.Color(255,255,255), string)
+        return string
   
-  
-    def runtext(self, canvas, pos, length):
+    def runtext(self, canvas, pos, length, text = "Coucou!"):
         font = graphics.Font()
         canvas.brightness = 100
         font.LoadFont("../../../fonts/7x13.bdf")
-        my_text = self.args.runtext
+        #my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
 graphics.Color(174, 76, 182),
 graphics.Color(176, 82, 176),
@@ -80,7 +90,7 @@ graphics.Color(255, 234, 0)]
         print(pos)
         if pos + length == 0:
             pos = canvas.width
-        lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
+        lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], text)
         #for i in range(10):
         #    lenght= graphics.DrawLine(canvas, 0, i, 20, i, graphics.Color(0,0,0))
         return pos, lenght
@@ -110,9 +120,9 @@ graphics.Color(255, 234, 0)]
         frame = 0
         while True :
             offscreen_canvas.Clear()
-            pos, length = self.runtext(offscreen_canvas, pos, length)
+            text = self.countdown(offscreen_canvas, 30,20)
+            pos, length = self.runtext(offscreen_canvas, pos, length, text)
             frame = self.set_image(offscreen_canvas, frame)
-            self.countdown(offscreen_canvas, 30,20)
             time.sleep(0.03)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
     
