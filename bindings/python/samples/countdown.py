@@ -36,6 +36,7 @@ class Countdown(SampleBase):
   
     def runtext(self, canvas):
         font = graphics.Font()
+        canvas.brightness = 100
         font.LoadFont("../../../fonts/7x13.bdf")
         my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
@@ -79,9 +80,9 @@ graphics.Color(255, 234, 0)]
     def run(self):
         offscreen_canvas = self.matrix.CreateFrameCanvas()
         while True :
-            offscreen_canvas.Clear()
             self.countdown(offscreen_canvas, 20,20)
             self.runtext(offscreen_canvas)
+            offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
             time.sleep(0.5)
         return
     
