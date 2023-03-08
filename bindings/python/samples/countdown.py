@@ -29,7 +29,7 @@ class Countdown(SampleBase):
         deadline = datetime.datetime(year=2023, month=5, day=1)
         delta = deadline - now
         month = deadline.month-now.month
-        days = deadline.days-now.days
+        days = deadline.day-now.day
         hours = delta.seconds // 3600
         minutes = (delta.seconds -3600*hours) // 60
         seconds = delta.seconds -3600*hours - 60*minutes
