@@ -25,7 +25,7 @@ class Countdown(SampleBase):
 
     def calculate_date_delta(self):
         now = datetime.datetime.now()
-        deadline = datetime.datetime(year=2023, month=5, day=1)
+        deadline = datetime.datetime(year=2023, month=4, day=30)
         delta = deadline - now
         days = deadline.day-now.day
         month = deadline.month-now.month - (days<0)
