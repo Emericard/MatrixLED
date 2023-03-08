@@ -18,7 +18,6 @@ else:
         for i in range(int(nb_frame)): 
             image_file = folder_path + "/frame_" + str(i) + ".gif"
             display_image(image_file)
-            time.sleep(0.1)
 try:
     print("Press CTRL-C to stop.")
     while True:
