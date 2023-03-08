@@ -7,6 +7,7 @@ import time
 from math import ceil, floor
 import datetime
 from PIL import Image
+from calendar import monthrange
 
 deadlines = [
     ["CTS, DCPI", datetime.datetime(year=2023, month=2, day=17) ],
@@ -28,8 +29,10 @@ class Countdown(SampleBase):
         now = datetime.datetime.now()
         deadline = datetime.datetime(year=2023, month=5, day=1)
         delta = deadline - now
-        month = deadline.month-now.month
         days = deadline.day-now.day
+        month = deadline.month-now.month + (days<0)
+        if days<0:
+            days += monthrange(now.year,now.month)
         hours = delta.seconds // 3600
         minutes = (delta.seconds -3600*hours) // 60
         seconds = delta.seconds -3600*hours - 60*minutes
