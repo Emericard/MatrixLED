@@ -22,8 +22,8 @@ class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
         super(Countdown, self).__init__(*args, **kwargs)
         self.parser.add_argument("-t", "--runtext", help="The text to scroll on the RGB LED panel", default="Car done in :")
-        self.parser.add_argument("-i", "--gifPath", help="The gpath to the gif to display", default="Images/AutoParrot")
-        self.parser.add_argument("-n", "--nb_frames", help="Thenumber of frames of the gif to display", default=10)
+        self.parser.add_argument("-i", "--gifPath", help="The gpath to the gif to display", default="Images/MildPanic")
+        self.parser.add_argument("-n", "--nb_frames", help="Thenumber of frames of the gif to display", default=8)
 
     def calculate_date_delta(self):
         now = datetime.datetime.now()
