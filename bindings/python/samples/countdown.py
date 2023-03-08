@@ -64,7 +64,7 @@ class Countdown(SampleBase):
   
     def runtext(self, canvas, pos, length):
         font = graphics.Font()
-        canvas.brightness = 80
+        canvas.brightness = 60
         font.LoadFont("../../../fonts/7x13.bdf")
         my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
@@ -103,12 +103,12 @@ graphics.Color(255, 234, 0)]
         pos -= 0
         lenght = graphics.DrawText(canvas, font, 1, 21, colors[ceil(31*now.second/60)], my_text)
         delta = self.calculate_date_delta()
-        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "m " + str(delta[1]) + "d" + str(delta[2]) + "h")
+        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "m " + str(delta[1]) + "d " + str(delta[2]) + "h")
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
         font = graphics.Font()
-        canvas.brightness = 80
+        canvas.brightness =60
         font.LoadFont("../../../fonts/7x13.bdf")
         colors = [graphics.Color(171, 71, 188),
 graphics.Color(174, 76, 182),
