@@ -86,7 +86,7 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos -= 0
-        lenght = graphics.DrawText(canvas, font, pos, 30, colors[ceil(31*now.second/60)], my_text)
+        lenght = graphics.DrawText(canvas, font, 30, 30, colors[ceil(31*now.second/60)], my_text)
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
