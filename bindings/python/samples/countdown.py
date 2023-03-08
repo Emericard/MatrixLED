@@ -28,11 +28,12 @@ class Countdown(SampleBase):
         now = datetime.datetime.now()
         deadline = datetime.datetime(year=2023, month=5, day=1)
         delta = deadline - now
-        days = delta.days
+        month = deadline.month-now.month
+        days = deadline.days-now.days
         hours = delta.seconds // 3600
         minutes = (delta.seconds -3600*hours) // 60
         seconds = delta.seconds -3600*hours - 60*minutes
-        return [days, hours, minutes, seconds]
+        return [month, days, hours, minutes, seconds]
 
     def calculate_delta(self, i):
         """Calculates the number of days until next xmas"""
@@ -98,7 +99,7 @@ graphics.Color(255, 234, 0)]
         pos -= 0
         lenght = graphics.DrawText(canvas, font, 1, 21, colors[ceil(31*now.second/60)], my_text)
         delta = self.calculate_date_delta()
-        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "d " + str(delta[1]) + "h")
+        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "m " + str(delta[1]) + "d" + str(delta[2]) + "h")
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
