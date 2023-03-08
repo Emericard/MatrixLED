@@ -86,7 +86,7 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos -= 0
-        lenght = graphics.DrawText(canvas, font, 0, 20, colors[ceil(31*now.second/60)], my_text)
+        lenght = graphics.DrawText(canvas, font, 1, 20, colors[ceil(31*now.second/60)], my_text)
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
@@ -146,7 +146,7 @@ graphics.Color(255, 234, 0)]
         for i in range(width):
             for j in range(height):
                 colors = rgbImage.getpixel((i,j))
-                test = canvas.SetPixel(i+10, j+10, colors[0], colors[1],colors[2])
+                test = canvas.SetPixel(canvas.width + i - width, j+10, colors[0], colors[1],colors[2])
         return frame
 
     def run(self):
