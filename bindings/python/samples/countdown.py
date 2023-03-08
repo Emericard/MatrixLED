@@ -7,6 +7,7 @@ import time
 from math import ceil, floor
 import datetime
 from PIL import Image
+from calendar import monthrange
 
 deadlines = [
     ["CTS, DCPI", datetime.datetime(year=2023, month=2, day=17) ],
@@ -28,8 +29,11 @@ class Countdown(SampleBase):
         now = datetime.datetime.now()
         deadline = datetime.datetime(year=2023, month=5, day=1)
         delta = deadline - now
-        month = deadline.month-now.month
         days = deadline.day-now.day
+        month = deadline.month-now.month - (days<0)
+        if days<0:
+            w, m = monthrange(now.year,now.month)
+            days += m
         hours = delta.seconds // 3600
         minutes = (delta.seconds -3600*hours) // 60
         seconds = delta.seconds -3600*hours - 60*minutes
@@ -60,7 +64,7 @@ class Countdown(SampleBase):
   
     def runtext(self, canvas, pos, length):
         font = graphics.Font()
-        canvas.brightness = 80
+        canvas.brightness = 60
         font.LoadFont("../../../fonts/7x13.bdf")
         my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
@@ -99,12 +103,12 @@ graphics.Color(255, 234, 0)]
         pos -= 0
         lenght = graphics.DrawText(canvas, font, 1, 21, colors[ceil(31*now.second/60)], my_text)
         delta = self.calculate_date_delta()
-        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "m " + str(delta[1]) + "d" + str(delta[2]) + "h")
+        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "m " + str(delta[1]) + "d " + str(delta[2]) + "h")
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
         font = graphics.Font()
-        canvas.brightness = 80
+        canvas.brightness =60
         font.LoadFont("../../../fonts/7x13.bdf")
         colors = [graphics.Color(171, 71, 188),
 graphics.Color(174, 76, 182),
