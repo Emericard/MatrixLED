@@ -51,7 +51,7 @@ class Countdown(SampleBase):
         font = graphics.Font()
         canvas.brightness = 100
         font.LoadFont("../../../fonts/7x13.bdf")
-        #my_text = self.args.runtext
+        my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
 graphics.Color(174, 76, 182),
 graphics.Color(176, 82, 176),
@@ -85,7 +85,7 @@ graphics.Color(250, 223, 12),
 graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
-        pos -= 1 
+        pos -= 0
         if pos + length == 0:
             pos = canvas.width
         lenght = graphics.DrawText(canvas, font, pos, 10, colors[ceil(31*now.second/60)], my_text)
@@ -139,7 +139,7 @@ graphics.Color(255, 234, 0)]
     def set_image(self, canvas, frame):
         canvas.brightness = 60
         folder_path = self.args.gifPath
-        nb_frame = self.args.nb_frames
+        nb_frame = int(self.args.nb_frames)
         frame += 1
         if frame >= nb_frame:
             frame = 0
@@ -158,10 +158,12 @@ graphics.Color(255, 234, 0)]
         pos = offscreen_canvas.width
         length = 0
         frame = 0
+        len_text = 0
         while True :
             offscreen_canvas.Clear()
-            text = self.countdown(offscreen_canvas, 30,20)
-            pos, length = self.run_deadlines(offscreen_canvas, pos, length, text)
+            countdown = self.countdown(offscreen_canvas, 30,20)
+            pos_text, len_text = self.runtext(offscreen_canvas, 30, len_text)
+            pos, length = self.run_deadlines(offscreen_canvas, pos, length, countdown)
             frame = self.set_image(offscreen_canvas, frame)
             #time.sleep(0.03)
             offscreen_canvas = self.matrix.SwapOnVSync(offscreen_canvas)
