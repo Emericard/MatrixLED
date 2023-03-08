@@ -20,9 +20,19 @@ deadlines = [
 class Countdown(SampleBase):
     def __init__(self, *args, **kwargs):
         super(Countdown, self).__init__(*args, **kwargs)
-        self.parser.add_argument("-t", "--runtext", help="The text to scroll on the RGB LED panel", default="Hello world!")
+        self.parser.add_argument("-t", "--runtext", help="The text to scroll on the RGB LED panel", default="Car done in :")
         self.parser.add_argument("-i", "--gifPath", help="The gpath to the gif to display", default="Images/PizzaParrot")
         self.parser.add_argument("-n", "--nb_frames", help="Thenumber of frames of the gif to display", default=10)
+
+    def calculate_date_delta(self):
+        now = datetime.datetime.now()
+        deadline = datetime.datetime(year=2023, month=5, day=1)
+        delta = deadline - now
+        days = delta.days
+        hours = delta.seconds // 3600
+        minutes = (delta.seconds -3600*hours) // 60
+        seconds = delta.seconds -3600*hours - 60*minutes
+        return [days, hours, minutes, seconds]
 
     def calculate_delta(self, i):
         """Calculates the number of days until next xmas"""
@@ -86,7 +96,9 @@ graphics.Color(252, 229, 6),
 graphics.Color(255, 234, 0)]
         now = datetime.datetime.now()
         pos -= 0
-        lenght = graphics.DrawText(canvas, font, 1, 20, colors[ceil(31*now.second/60)], my_text)
+        lenght = graphics.DrawText(canvas, font, 1, 21, colors[ceil(31*now.second/60)], my_text)
+        delta = self.calculate_date_delta()
+        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "d " + str(delta[1]) + "h")
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
