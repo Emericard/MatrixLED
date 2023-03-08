@@ -150,7 +150,7 @@ graphics.Color(255, 234, 0)]
         for i in range(width):
             for j in range(height):
                 colors = rgbImage.getpixel((i,j))
-                test = canvas.SetPixel(i, j, colors[0], colors[1],colors[2])
+                test = canvas.SetPixel(i+10, j+10, colors[0], colors[1],colors[2])
         return frame
 
     def run(self):
