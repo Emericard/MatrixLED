@@ -49,7 +49,7 @@ class Countdown(SampleBase):
   
     def runtext(self, canvas, pos, length):
         font = graphics.Font()
-        canvas.brightness = 100
+        canvas.brightness = 80
         font.LoadFont("../../../fonts/7x13.bdf")
         my_text = self.args.runtext
         colors = [graphics.Color(171, 71, 188),
@@ -91,7 +91,7 @@ graphics.Color(255, 234, 0)]
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
         font = graphics.Font()
-        canvas.brightness = 100
+        canvas.brightness = 80
         font.LoadFont("../../../fonts/7x13.bdf")
         colors = [graphics.Color(171, 71, 188),
 graphics.Color(174, 76, 182),
