@@ -101,7 +101,7 @@ graphics.Color(255, 234, 0)]
         pos -= 0
         lenght = graphics.DrawText(canvas, font, 1, 21, colors[ceil(31*now.second/60)], my_text)
         delta = self.calculate_date_delta()
-        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "month " + str(delta[1]) + "days " + str(delta[2]) + "hours")
+        lenght = graphics.DrawText(canvas, font, 1, 32, colors[ceil(31*now.second/60)], str(delta[0]) + "month " + str(delta[1]) + "d " + str(delta[2]) + "h")
         return pos, lenght
     
     def run_deadlines(self, canvas, pos, length, text = "Coucou!"):
