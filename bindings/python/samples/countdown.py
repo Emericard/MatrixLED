@@ -32,7 +32,8 @@ class Countdown(SampleBase):
         days = deadline.day-now.day
         month = deadline.month-now.month + (days<0)
         if days<0:
-            days += monthrange(now.year,now.month)
+            w, m = monthrange(now.year,now.month)
+            days += m
         hours = delta.seconds // 3600
         minutes = (delta.seconds -3600*hours) // 60
         seconds = delta.seconds -3600*hours - 60*minutes
